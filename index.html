@@ -1,0 +1,45 @@
+<div class="frame">
+  <img
+  src="https://cdn.jsdelivr.net/gh/kahrvba/naqlyatTech-Website@main/public/images/applecode.png"
+  alt="Apple Code"
+/>
+
+</div>
+
+<style>
+  .frame {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* the teal top+left border “L-shape” */
+  .frame::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* match your image size exactly */
+    width: 100%;
+    height: 100%;
+    /* 20px thick teal border on top and left only */
+    border-top: 20px solid #164851;
+    border-left: 20px solid #164851;
+    /* rounded corners matching your design */
+    border-radius: 20px;
+    box-sizing: border-box;
+    pointer-events: none;
+  }
+
+  .frame img {
+    display: block;
+    /* push the image in by the border thickness */
+    margin-top: 20px;
+    margin-left: 20px;
+    /* size as needed */
+    width: 600px;
+    height: 400px;
+    object-fit: cover;
+    /* only round the right corners */
+    border-radius: 0 20px 20px 0;
+  }
+</style>
