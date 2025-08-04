@@ -1,6 +1,8 @@
 <h2 id="headline" class="headline">
-  <span class="static">What’s Next For U? Find Your Best Fit</span>
-  <span class="flip" aria-live="polite"></span>
+  <span class="static">What's Next For U? Find Your Best Fit</span>
+  <span class="flip" aria-live="polite">
+    <div class="line-container"></div>
+  </span>
 </h2>
 
 <style>
@@ -23,6 +25,7 @@
     gap: var(--gap);
     line-height: 1.2;              /* your heading line-height */
     text-align: center;            /* harmless with flex */
+    position: relative;            /* for absolute positioning of line */
   }
   .headline .static{ font: inherit; line-height: inherit; }
 
@@ -31,12 +34,11 @@
     display: inline-grid;
     grid-template-rows: 1em;
     grid-template-columns: 1fr;
-    justify-items: center;         /* center align inside the box */
+    justify-items: center;        /* center align inside the box */
     align-items: end;
     position: relative;
     color: var(--flip-color);
     perspective: 800px;
-    overflow: hidden;
     font-family: "Handlee", cursive; /* use Handlee font for flip words */
     line-height: 1em;              /* single text line tall */
     transform: translateY(10px);    /* move the flip container down more */
@@ -64,6 +66,24 @@
   @keyframes flipInUp {
     0%   { transform: translateY(var(--y,0)) rotateX(90deg);  }
     100% { transform: translateY(var(--y,0)) rotateX(0deg);   }
+  }
+
+  /* Line container styling */
+  .line-container {
+    position: absolute;
+    top: 120%;
+    left: 30%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 17px;
+    background: url('/images/line.png') no-repeat center;
+    background-size: contain;
+    z-index: 1;
+  }
+
+  .line-image {
+    max-width: 100%;
+    height: auto;
   }
 </style>
 
